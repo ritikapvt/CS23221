@@ -1,0 +1,112 @@
+QUESTION ----------------
+Create a Python-based solution that can parse input data representing a list of students with their respective marks and other details, and compute the average marks. The input may present these details in any order, so the solution must be adaptable to this variability.
+------------------ANSWER
+import csv
+import sys
+def calculate_average_marks(input_data):
+    reader = csv.DictReader(input_data, delimiter=' ')
+    total_marks = 0
+    student_count = 0
+    for row in reader:
+        total_marks += int(row['MARKS'])
+        student_count += 1
+    average_marks = total_marks / student_count if student_count else 0
+    print(f"{average_marks:.2f}")
+if __name__ == "__main__":
+    input_data = sys.stdin.read().splitlines()
+    n = int(input_data[0])
+column_headers = input_data[1]
+student_data = input_data[2:n+2]
+input_csv = [column_headers] + student_data
+calculate_average_marks(input_csv)
+------------------------------
+QUESTION ----------------
+Given an integer n, print true if it is a power of two. Otherwise, print false. An integer n is a power of two, if there exists an integer x such that n == 2x.
+------------------ANSWER
+n=int(input())
+if n<=0:
+    print("False")
+else:
+    while n%2==0:
+        n/=2
+    print(n==1)
+------------------------------
+QUESTION ----------------
+Develop a Python program that reads a series of book titles and their corresponding genres from user input, categorizes the books by genre using a dictionary, and outputs the list of books under each genre in a formatted manner.
+------------------ANSWER
+def categorize_books():
+    import sys
+    input = sys.stdin.read
+    
+    # Read all input lines until a blank line
+    data = input().strip()
+    if not data:
+        return
+    
+    lines = data.split('\n')
+    genre_dict = {}
+    
+    for line in lines:
+        if line.strip() == "":
+            break
+        title, genre = map(str.strip, line.split(',', 1))
+        if genre not in genre_dict:
+            genre_dict[genre] = []
+        genre_dict[genre].append(title)
+    
+    # Print the books categorized by genre
+    for genre, titles in genre_dict.items():
+        print(f"{genre}: {', '.join(titles)}")
+
+# Run the function
+categorize_books()
+------------------------------
+QUESTION ----------------
+Given an array activities representing the number of activities each user has participated in and an integer k, your job is to return the number of unique pairs (i, j) where activities[i] - activities[j] = k, and i < j. The absolute difference between the activities should be exactly k.
+------------------ANSWER
+n=int(input())
+nums=list(map(int, input().split()))
+k=int(input())
+
+if k==0:
+    freq_map={}
+    count=0
+        
+    for num in nums:
+        freq_map[num]=freq_map.get(num,0)+1
+            
+    for num in freq_map:
+        count+=freq_map[num]*(freq_map[num]-1)//2
+               
+    print(count)
+    exit()
+    
+freq_map={}
+count=0
+    
+for num in nums:
+    freq_map[num]=freq_map.get(num,0)+1
+    
+for num in nums:
+    if num-k in freq_map:
+        count+=freq_map[num-k]
+            
+print(count)
+------------------------------
+QUESTION ----------------
+Develop a Python program that manages shoe inventory and processes sales transactions to determine the total revenue generated. The program should handle inputs of shoe sizes available in the shop, track the number of each size, and match these with customer purchase requests. Each transaction should only proceed if the desired shoe size is in stock, and the inventory should update accordingly after each sale.
+------------------ANSWER
+total=int(input())
+sizes=list(map(int, input().split()))
+inventory={}
+for size in sizes:
+    inventory[size]=inventory.get(size,0)+1
+requests=int(input())
+total_revenue=0
+for _ in range (requests):
+    requested_size, price=map(int, input().split())
+    if inventory.get(requested_size, 0)>0:
+        total_revenue+=price
+        inventory[requested_size]-=1
+print(total_revenue)
+------------------------------
