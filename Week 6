@@ -1,0 +1,210 @@
+QUESTION ----------------
+Determine the factors of a number (i.e., all positive integer values that evenly divide into a number) and then return the pth element of the list, sorted ascending. If there is no pth element, return 0.
+------------------ANSWER
+n=int(input())
+p=int(input())
+l=[]
+for i in range (1,n+1):
+    if n%i==0:
+        l.append(i)
+if (len(l)>=p):
+    print(l[p-1])
+else:
+    print("0")
+------------------------------
+QUESTION ----------------
+Write a Python program to check if a given list is strictly increasing or not. Moreover, If removing only one element from the list results in a strictly increasing list, we still consider the list true.
+------------------ANSWER
+n = int(input())
+lst = []
+for _ in range(n):
+    element = int(input())
+    lst.append(element)
+
+is_strictly_increasing = True
+is_strictly_decreasing = True
+for i in range(1, len(lst)):
+    if lst[i] <= lst[i-1]:
+        is_strictly_increasing = False
+    if lst[i] >= lst[i-1]:
+        is_strictly_decreasing = False
+
+if not is_strictly_increasing and not is_strictly_decreasing:
+    for i in range(len(lst)):
+        temp_lst = lst[:i] + lst[i+1:]
+        temp_is_strictly_increasing = True
+        temp_is_strictly_decreasing = True
+        for j in range(1, len(temp_lst)):
+            if temp_lst[j] <= temp_lst[j-1]:
+                temp_is_strictly_increasing = False
+            if temp_lst[j] >= temp_lst[j-1]:
+                temp_is_strictly_decreasing = False
+        if temp_is_strictly_increasing or temp_is_strictly_decreasing:
+            is_strictly_increasing = temp_is_strictly_increasing
+            is_strictly_decreasing = temp_is_strictly_decreasing
+            break
+
+if is_strictly_increasing or is_strictly_decreasing:
+    print("True")
+else:
+    print("False")
+------------------------------
+QUESTION ----------------
+Find the intersection of two sorted arrays.
+------------------ANSWER
+t=int(input())
+n1=int(input())
+list1=[]
+
+for i in range (n1):
+    s=int(input())
+    list1.append(s)
+
+n2=int(input())
+list2=[]
+
+for j in range (n2):
+    s=int(input())
+    list2.append(s)
+    
+list3=[]
+    
+for i in list1:
+    for j in list2:
+        if i==j:
+            list3.append(i)
+            
+for i in list3:
+    print(i, end=" ")
+------------------------------
+QUESTION ----------------
+Write a program to print all the locations at which a particular element (taken as input) is found in a list and also print the total number of times it occurs in the list. The location starts from 1.
+------------------ANSWER
+n=int(input())
+list=[]
+
+for i in range (n):
+    a=int(input())
+    list.append(a)
+
+k=int(input())
+
+c=0
+for i in range (len(list)):
+    if list[i]==k:
+        print("%d" %k ,"is present at location %d." %(i+1))
+        c=c+1
+        
+if c!=0:
+    print("%d" %k, "is present %d" %c, "times in the array.")
+else:
+    print("%d" %k, "is not present in the array.")
+------------------------------
+QUESTION ----------------
+Given an array of numbers, find the index of the smallest array element (the pivot), for which the sums of all elements to the left and to the right are equal. The array may not be reordered.
+------------------ANSWER
+n=int(input())
+my_list=[]
+for i in range(n):
+    a=int(input())
+    my_list.append(a)
+
+for i in range(1,n):
+        leftSum = sum(my_list[0:i])
+        rightSum = sum(my_list[i+1:])
+        if(leftSum == rightSum):
+            print(i)
+------------------------------
+QUESTION ----------------
+Consider a program to insert an element / item in the sorted array. Complete the logic by filling up required code in editable section. Consider an array of size 10. The eleventh item is the data is to be inserted.
+------------------ANSWER
+n=10
+my_list=[]
+for i in range (n):
+    a=int(input())
+    my_list.append(a)
+k=int(input())
+my_list.append(k)
+my_list.sort()
+print("ITEM to be inserted:%d" %k)
+print("After insertion array is:")
+for i in my_list:
+    print(i, sep=" ")
+------------------------------
+QUESTION ----------------
+Program to print all the distinct elements in an array. Distinct elements are nothing but the unique (non-duplicate) elements present in the given array.
+------------------ANSWER
+n=int(input())
+my_list=[]
+for i in range (n):
+    a=int(input())
+    if a not in my_list:
+        my_list.append(a)
+for i in my_list:
+    print(i, end=" ")
+------------------------------
+QUESTION ----------------
+Given an array A of sorted integers and another non negative integer k, find if there exists 2 indices i and j such that A[i] - A[j] = k, i != j.
+------------------ANSWER
+t=int(input())
+for i in range (t):
+    n=int(input())
+    my_list=[]
+    c=0
+    for i in range (n):
+        a=int(input())
+        my_list.append(a)
+    k=int(input())
+    for i in range (len(my_list)-1,-1,-1):
+        for j in range(len(my_list)):
+            if i!=j:
+                if my_list[i]-my_list[j]==k:
+                    c=c+1
+    if c==0:
+        print("0")
+    else:
+        print("1")
+------------------------------
+QUESTION ----------------
+Output is a merged array without duplicates.
+------------------ANSWER
+n1=int(input())
+list1=[]
+
+for i in range (n1):
+    a=int(input())
+    list1.append(a)
+
+n2=int(input())
+list2=[]
+
+for i in range (n2):
+    b=int(input())
+    if b not in list1:
+        list1.append(b)
+        
+list1.sort()
+
+for i in list1:
+    print(i, end=" ")
+------------------------------
+QUESTION ----------------
+Write a Python program to zip two given lists of lists.
+------------------ANSWER
+m=int(input())
+n=int(input())
+l1=[]
+l2=[]
+l3=[]
+for i in range(m):
+    l1.append(int(input()))
+for i in range(m):
+    l2.append(int(input()))
+for i in range(n):
+    l1.append(int(input()))
+for i in range(n):
+    l2.append(int(input()))
+l3.append(l1)
+l3.append(l2)
+print(l3)
+------------------------------
