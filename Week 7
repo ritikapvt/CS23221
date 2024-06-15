@@ -1,0 +1,111 @@
+QUESTION ----------------
+Given a string s that represents a DNA sequence, return all the 10-letter-long sequences (substrings) that occur more than once in a DNA molecule. You may return the answer in any order.
+------------------ANSWER
+s=input()
+l=[]
+l1=[]
+
+for i in range (len(s)):
+    u=s[i:(i+10)]
+    l.append(u)
+
+for j in l:
+    cnt=l.count(j)
+    if cnt>1:
+        l1.append(j)
+l1.sort
+l1=set(l1)
+
+for k in l1:
+    print(k)
+------------------------------
+QUESTION ----------------
+Given a string text of words separated by a single space (no leading or trailing spaces) and a string brokenLetters of all distinct letter keys that are broken, return the number of words in text you can fully type using this keyboard.
+------------------ANSWER
+s=input()
+s=s.lower()
+s=s.split()
+
+s1=input()
+s1=set(s1)
+
+cnt=0
+
+for i in s:
+    words=0
+    for j in i:
+        if j in s1:
+            words+=1
+    if words==0:
+        cnt+=1
+print(cnt)
+------------------------------
+QUESTION ----------------
+Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.There is only one repeated number in nums, return this repeated number. Solve the problem using set.
+------------------ANSWER
+s=input()
+dupe=set()
+
+for i in s:
+    if i!=' ':
+        if i not in dupe:
+            dupe.add(i)
+        else:
+            print(i)
+------------------------------
+QUESTION ----------------
+Given an array of strings words, return the words that can be typed using letters of the alphabet on only one row of American keyboard like the image below.
+------------------ANSWER
+n = int(input())
+words = []
+
+for i in range(n):
+    words.append(input())
+
+top = {'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
+       'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'}
+mid = {'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
+       'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'}
+bot = {'z', 'x', 'c', 'v', 'b', 'n', 'm',
+       'Z', 'X', 'C', 'V', 'B', 'N', 'M'}
+
+valid_words = []
+
+for word in words:
+    top_valid = True
+    mid_valid = True
+    bot_valid = True
+
+    for c in word:
+        if c not in top:
+            top_valid = False
+        if c not in mid:
+            mid_valid = False
+        if c not in bot:
+            bot_valid = False
+
+    if top_valid or mid_valid or bot_valid:
+        valid_words.append(word)
+
+if not valid_words:
+    print("No words")
+else:
+    for word in valid_words:
+        print(word)
+------------------------------
+QUESTION ----------------
+Given a tuple and a positive integer k, the task is to find the count of distinct pairs in the tuple whose sum is equal to K.
+------------------ANSWER
+num=input()
+l=[]
+pairs=set()
+for i in num:
+    if i!=',':
+        l.append(int(i))
+k=int(input())
+for i in range (len(l)):
+    for j in range (len(l)):
+        if l[i]+l[j]==k:
+            pairs.update((l[i],l[j]))
+print(len(pairs)//2)
+------------------------------
