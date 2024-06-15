@@ -1,0 +1,135 @@
+QUESTION ----------------
+An list contains N numbers and you want to determine whether two of the numbers sum to a given number K. For example, if the input is 8, 4, 1, 6 and K is 10, the answer is yes (4 and 6). A number may be used twice.
+------------------ANSWER
+n=int(input())
+s=input()
+k=int(input())
+s=s.split()
+a=[]
+cnt=0
+
+
+for i in s:
+    a.append(int(i))
+
+for i in range (len(a)):
+    for j in range (i+1,len(a)):
+        if a[i]+a[j]==k:
+            cnt+=1
+
+if cnt==0:
+    print("No")
+else:
+    print("Yes")
+------------------------------
+QUESTION ----------------
+Given an list, find peak element in it. A peak element is an element that is greater than its neighbors. An element a[i] is a peak element if:-
+A[i-1] <= A[i] >=a[i+1] for middle elements. [0<i<n-1]
+A[i-1] <= A[i] for last element [i=n-1]
+A[i]>=A[i+1] for first element [i=0]
+Input Format
+The first line contains a single integer n , the length of A.
+The second line contains n space-separated integers,A[i].
+Output Format
+Print peak numbers separated by space.
+------------------ANSWER
+n=int(input())
+s=input()
+s=s.split()
+a=[]
+p=[]
+
+for i in s:
+    a.append(int(i))
+
+for i in range (len(a)):
+    if i==0:
+        if a[i]>=a[i+1]:
+            p.append(a[i])
+            
+    elif i==(len(a)-1):
+        if a[i-1] <= a[i]:
+            p.append(a[i])
+    
+    else:
+        if a[i-1] <= a[i] >=a[i+1]:
+            p.append(a[i])
+
+for j in p:
+    print(j, end=" ")
+------------------------------
+QUESTION ----------------
+Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order. You read an list of numbers. You need to arrange the elements in ascending order and print the result. The sorting should be done using bubble sort.
+------------------ANSWER
+n=int(input())
+s=input()
+s=s.split()
+a=[]
+cnt=0
+
+for i in s:
+    a.append(int(i))
+
+for i in range (n-1):
+    for j in range (n-1-i):
+        if a[j]>a[j+1]:
+            temp=a[j]
+            a[j]=a[j+1]
+            a[j+1]=temp
+            
+for k in a:
+    print(k, end=" ")
+------------------------------
+QUESTION ----------------
+Write a Python program for binary search.
+------------------ANSWER
+s=input()
+k=int(input())
+s=s.split(',')
+a=[]
+
+for i in s:
+    a.append(int(i))
+a.sort()
+
+first=0
+last=len(a)-1
+flag=False
+
+while first<=last:
+    mid=(first+last)//2
+    
+    if a[mid]>k:
+        last=mid-1
+        
+    elif a[mid]==k:
+        flag=True
+        break
+    
+    else:
+        first=mid+1
+        
+print(flag)
+------------------------------
+QUESTION ----------------
+To find the frequency of numbers in a list and display in sorted order.
+------------------ANSWER
+s=input()
+b=s.split()
+l=[]
+l1=[]
+
+for i in b:
+    l.append(int(i))
+  
+for i in range(len(l)-1):
+    for j in range(len(l)-i-1):
+        if l[j]>l[j+1]:
+            l[j],l[j+1]=l[j+1],l[j]
+
+for i in l:
+    if i not in l1:
+        l1.append(i)
+        c=l.count(i)
+        print(i,c)
+------------------------------
