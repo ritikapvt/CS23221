@@ -1,0 +1,153 @@
+QUESTION ----------------
+Given a string S, containing special characters and all the alphabets, reverse the string without affecting the positions of the special characters.
+------------------ANSWER
+a=input()
+a=list(a)
+for i in range (len(a)):
+    for j in range (len(a)-1, -1, -1):
+        if 65<=ord(a[i])<=90 or 97<=ord(a[i])<=122:
+            if 65<=ord(a[j])<=90 or 97<=ord(a[j])<=122:
+                t=a[i]
+                a[i]=a[j]
+                a[j]=t
+                break
+for i in a:
+    print(i, end="")
+------------------------------
+QUESTION ----------------
+Robert  is having 2 strings consist of uppercase & lowercase english letters. Now he want to compare those two strings lexicographically. The letters' case does not matter, that is an uppercase letter is considered equivalent to the corresponding lowercase letter.
+------------------ANSWER
+t=int(input())
+while t!=0:
+    s1=input().lower()
+    s2=input().lower()
+    if s1<s2:
+        print("-1")
+    elif s2<s1:
+        print("1")
+    else:
+        print("0")
+    t=t-1
+------------------------------
+QUESTION ----------------
+Write a python program to count all letters, digits, and special symbols respectively from a given string.
+------------------ANSWER
+s=input()
+a,d,spl=0,0,0
+s=s.lower()
+for i in s:
+    if i.isalpha():
+        a=a+1
+    elif i.isdigit():
+        d=d+1
+    else:
+        spl=spl+1
+print(a)
+print(d)
+print(spl)
+------------------------------
+QUESTION ----------------
+Given a string S which is of the format USERNAME@DOMAIN.EXTENSION, the program must print the EXTENSION, DOMAIN, USERNAME in the reverse order.
+------------------ANSWER
+s=input()
+s1,s2,s3='','',''
+for i in s:
+    if i=='@':
+        break
+    else:
+        s1=s1+i
+x1=s.index('@')
+x2=s.index('.')
+s2=s[x1+1:x2]
+s3=s[x2+1:]
+print(s3)
+print(s2)
+print(s1)
+------------------------------
+QUESTION ----------------
+Write a program to check if two strings are balanced. For example, strings s1 and s2 are balanced if all the characters in the s1 are present in s2. The character’s position doesn’t matter. If balanced display as "true" ,otherwise "false".
+------------------ANSWER
+s1=input()
+s2=input()
+c=0
+list=[]
+for i in s1:
+    for j in s2:
+        if i==j:
+            list.append(i)
+            c=c+1
+if c==len(s1):
+    print("True")
+else:
+    print("False")
+------------------------------
+QUESTION ----------------
+In this exercise, you will create a program that reads words from the user until the user enters a blank line. After the user enters a blank line your program should display each word entered by the user exactly once. The words should be displayed in the same order that they were first entered.
+------------------ANSWER
+str=input()
+l=[]
+while (str!=" "):
+    if str not in l:
+        l.append(str)
+    str=input()
+for i in l:
+    print(i)
+------------------------------
+QUESTION ----------------
+Given two Strings s1 and s2, remove all the characters from s1 which is present in s2.
+------------------ANSWER
+s1=input()
+s2=input()
+for i in s1:
+    if i not in s2:
+        print(i, end="")
+------------------------------
+QUESTION ----------------
+Given a string S, which contains several words, print the count C of the words whose length is atleast L. (You can include punctuation marks like comma, full stop also as part of the word length. Space alone must be ignored).
+------------------ANSWER
+s=input()
+n=int(input())
+words=s.split()
+c=0
+list=[]
+for i in words:
+    if n<=len(i):
+        c=c+1
+print(c)
+------------------------------
+QUESTION ----------------
+Two string values S1, S2 are passed as the input. The program must print first N characters present in S1 which are also present in S2.
+------------------ANSWER
+s1=input()
+s2=input()
+n=int(input())
+list=[]
+c=0
+for i in s1:
+    for j in s2:
+        if i==j:
+            if j not in list:
+                if c<n:
+                    list.append(i)
+                    c=c+1
+for i in list:
+    print(i,end="")
+------------------------------
+QUESTION ----------------
+Consider the below words as key words and check the given input is key word or not.
+Keywords: {break, case, continue, default, defer, else, for, func, goto, if, map, range, return, struct, type, var}.
+------------------ANSWER
+s=input()
+list=[]
+c=0
+key=["case", "break", "continue", "default", "defer", "else", "for", "func", "goto", "if", "map", "range", "return", "struct", "type", "var"]
+for i in key:
+    if i==s:
+        list.append(i)
+    for i in list:
+        c=c+1
+if c==0:
+    print("%s is not a keyword" %s)
+else:
+    print("%s is a keyword" %s)
+------------------------------
