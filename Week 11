@@ -1,0 +1,69 @@
+QUESTION ----------------
+Write a Python script that asks the user to enter a number within a specified range (e.g., 1 to 100). Handle exceptions for invalid inputs and out-of-range numbers.
+------------------ANSWER
+class MyException (Exception):
+    pass
+try:
+    n=int(input())
+    if (n<1 or n>100):
+        raise (MyException)
+except MyException:
+    print("Error: Number out of allowed range")
+except ValueError:
+    print("Error: invalid literal for int()")
+else:
+    print("Valid input.")
+------------------------------
+QUESTION ----------------
+Write a Python program that asks the user for their age and prints a message based on the age. Ensure that the program handles cases where the input is not a valid integer.
+------------------ANSWER
+class MyException (Exception):
+    pass
+try:
+    n=int(input())
+    if n<0:
+        raise (MyException)
+except MyException:
+    print("Error: Please enter a valid age.")
+except ValueError:
+    print("Error: Please enter a valid age.")
+except EOFError:
+    print("Error: Please enter a valid age.")
+else:
+    print("You are %d years old." %n)
+------------------------------
+QUESTION ----------------
+Write a Python program that performs division and modulo operations on two numbers provided by the user. Handle division by zero and non-numeric inputs.
+------------------ANSWER
+class MyException (Exception):
+    pass
+try:
+    dd=int(input())
+    dr=int(input())
+    if dr==0:
+        raise (MyException)
+except MyException:
+    print("Error: Cannot divide or modulo by zero.")
+except ValueError:
+    print("Error: Non-numeric input provided.")
+else:
+    if dd%dr==0:
+        print("Division result: %.1f" %(dd/dr))
+        print("Modulo result: %d" %(dd%dr))
+    else:
+        print("Division result: %.16f" %(dd/dr))
+        print("Modulo result: %d" %(dd%dr))
+------------------------------
+QUESTION ----------------
+Develop a Python program that safely calculates the square root of a number provided by the user. Handle exceptions for negative inputs and non-numeric inputs.
+------------------ANSWER
+try:
+    a=float(input())
+    b=a**0.5
+    if a>=0:
+        print(f"The square root of {a} is %.2f"%b)
+    else:
+        print("Error: Cannot calculate the square root of a negative number.")
+except:
+    print("Error: could not convert string to float")
+------------------------------
