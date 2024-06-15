@@ -1,0 +1,162 @@
+QUESTION ----------------
+Write a program that computes and displays the Scrabble™ score for a word. Create a dictionary that maps from letters to point values. Then use the dictionary to compute the score.
+------------------ANSWER
+s=input()
+s=s.upper()
+score=0
+
+scores={
+    'A': 1, 'E': 1, 'I': 1, 'L': 1, 'N': 1, 'O': 1, 'R': 1, 'S': 1, 'T': 1, 'U': 1,
+    'D': 2, 'G': 2,
+    'B': 3, 'C': 3, 'M': 3, 'P': 3,
+    'F': 4, 'H': 4, 'V': 4, 'W': 4, 'Y': 4,
+    'K': 5,
+    'J': 8, 'X': 8,
+    'Q': 10, 'Z': 10
+}
+
+for i in s:
+    score+=scores[i]
+
+print(s, 'is worth %d points.' %score)
+------------------------------
+QUESTION ----------------
+Given an array of names of candidates in an election. A candidate name in the array represents a vote cast to the candidate. Print the name of candidates received Max vote. If there is tie, print a lexicographically smaller name.
+------------------ANSWER
+n=int(input())
+dupe_names=[]
+names=[]
+votes=[]
+winner=[]
+maxm=0
+
+for i in range (n):
+    name=input()
+    dupe_names.append(name)
+
+for i in dupe_names:
+    if i not in names:
+        names.append(i)
+
+for i in names:
+    cnt=dupe_names.count(i)
+    votes.append(cnt)
+    
+combined_dict=dict(zip(names, votes))
+
+for i in combined_dict:
+    if combined_dict[i]>maxm:
+        maxm=combined_dict[i]
+
+for i in combined_dict:
+    if combined_dict[i]==maxm:
+        winner.append(i)
+
+winner.sort()
+
+for i in winner:
+    print(i)
+    break
+------------------------------
+QUESTION ----------------
+A sentence is a string of single-space separated words where each word consists only of lowercase letters.A word is uncommon if it appears exactly once in one of the sentences, and does not appear in the other sentence. Given two sentences s1 and s2, return a list of all the uncommon words. You may return the answer in any order.
+------------------ANSWER
+a=input().split()
+b=input().split()
+c=[i for i in a]
+d=[i for i in b]
+e=c+d
+
+f={i for i in e if e.count(i)>1}
+
+c={i:i for i in c}
+c.update({i:i for i in d})
+
+for i in c:
+    if i not in f:
+        print(i,end=' ')
+------------------------------
+QUESTION ----------------
+Give a dictionary with value lists, sort the keys by summation of values in value list.
+------------------ANSWER
+n=int(input())
+c={}
+for i in range(n):
+    a=input().split()
+    b=a[1:len(a)]
+    c.setdefault(a[0],b)
+    b=[]
+ 
+f={}
+e=0
+
+for i,j in c.items():
+    for k in range(len(j)):
+        e+=int(j[k])
+    f.setdefault(i,e)
+    e=0
+
+
+g=list(f.items())
+g=[i[::-1] for i in g]
+g.sort()
+g=[i[::-1] for i in g]
+g=dict(g)
+
+for i,j in g.items():
+    print(i,j,sep=' ')
+------------------------------
+QUESTION ----------------
+Create a student dictionary  for n students with the student name as key and their test mark assignment mark and lab mark as values. Do the following computations and display the result.
+1.Identify the student with the  highest average score
+2.Identify the student who as the highest Assignment marks
+3.Identify the student with the Lowest lab marks
+4.Identify the student with the lowest average score
+------------------ANSWER
+n=int(input())
+d={}
+for i in range(n):
+    a=input().split()
+    b=[a[1],a[2],a[3]]
+    d.setdefault(a[0],b)
+#print(d)
+
+e=f=avg=0
+t=100
+lavg=500
+m=s=''
+for i,j in d.items():
+    for l in range(len(j)):
+        e+=int(j[l])
+        if l==1:
+            if int(j[l])>f:
+                f=int(j[l])
+                m=i
+            elif int(j[l])==f:
+                m=m+' '+i
+        if l==2:
+            if int(j[l])<t:
+                t=int(j[l])
+                s=i
+            elif int(j[l])==t:
+                s=i+' '+s
+    if e>avg:
+        avg=e
+        r=i
+    if e<lavg:
+        lavg=e
+        o=i
+    e=0    
+        
+print(r)        
+print(m)
+print(s)
+print(o)
+------------------------------
+
+among the Coimbatore people to donate blood. They conducted the rally successfully. Many of the Coimbatore people realized it and came forward to donate their blood to nearby blood banks. The eligibility criteria for donating blood are people should be above or equal to 18 and his/ her weight should be above 40. There was a huge crowd and staff in the blood bank found it difficult to manage the crowd. So they decided to keep a system and ask the people to enter their age and weight in the system. If a person is eligible he/she will be allowed inside. Write a program and feed it to the system to find whether a person is eligible or not.
+------------------ANSWER
+a= int(input())
+b= int(input())
+print(a>=18 and b>40)
+------------------------------
