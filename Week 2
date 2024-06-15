@@ -1,0 +1,89 @@
+QUESTION ----------------
+In the 1800s, the battle of Troy was led by Hercules. He was a superstitious person. He believed that his crew can win the battle only if the total count of the weapons in hand is in multiple of 3 and the soldiers are in an even number of count. Given the total number of weapons and the soldier's count, Find whether the battle can be won or not according to Hercules's belief. If the battle can be won print True otherwise print False.
+------------------ANSWER
+w= int(input())
+s= int(input())
+print(w%3==0 and s%2==0)
+------------------------------
+QUESTION ----------------
+An online retailer sells two products: widgets and gizmos. Each widget weighs 75 grams. Each gizmo weighs 112 grams. Write a program that reads the number of widgets and the number of gizmos from the user. Then your program should compute and display the total weight of the parts.
+------------------ANSWER
+w= int(input())
+g= int(input())
+total= (w*75)+(g*112)
+print('The total weight of all these widgets and gizmos is %d grams.' % total)
+------------------------------
+QUESTION ----------------
+The program that you create for this exercise will begin by reading the cost of a meal ordered at a restaurant from the user. Then your program will compute the tax and tip for the meal. Use your local tax rate (5 percent) when computing the amount of tax owing. Compute the tip as 18 percent of the meal amount (without the tax). The output from your program should include the tax amount, the tip amount, and the grand total for the meal including both the tax and the tip. Format the output so that all of the values are displayed using two decimal places.
+------------------ANSWER
+meal= int(input())
+tax= (5/100)*meal
+tip= (18/100)*meal
+total= meal+tip+tax
+print('The tax is ''%.2f' % tax, 'and the tip is ''%.2f,' % tip, 'making the total ''%.2f' % total)
+------------------------------
+QUESTION ----------------
+Pretend that you have just opened a new savings account that earns 4 percent interest per year. The interest that you earn is paid at the end of the year, and is added to the balance of the savings account. Write a program that begins by reading the amount of money deposited into the account from the user. Then your program should compute and display the amount in the savings account after 1, 2, and 3 years. Display each amount so that it is rounded to 2 decimal places.
+------------------ANSWER
+a= int(input())
+a1= a+(0.04*a)
+print('Balance as of end of Year 1: $%.2f.' %a1)
+a2= a1+ (0.04*a1)
+print('Balance as of end of Year 2: $%.2f.' %a2)
+a3= a2+ (0.04*a2)
+print('Balance as of end of Year 3: $%.2f.' %a3)
+------------------------------
+QUESTION ----------------
+Write a program that returns the last digit of the given number. Last digit is being referred to the least significant digit i.e. the digit in the ones (units) place in the given number.
+------------------ANSWER
+a=int (input())
+print((abs(a))%10)
+------------------------------
+QUESTION ----------------
+Mr. X's birthday is in next month. This time he is planning to invite N of his friends. He wants to distribute some chocolates to all of his friends after the party. He went to a shop to buy a packet of chocolates. At the chocolate shop, 4 packets are there with different numbers of chocolates. He wants to buy such a packet which contains a number of chocolates, which can be distributed equally among all of his friends. Help Mr. X to buy such a packet.
+------------------ANSWER
+a= int(input())
+b= int(input())
+c= int(input())
+d= int(input())
+e= int(input())
+print(b%a==0,end=' ')
+print(c%a==0,end=' ')
+print(d%a==0,end=' ')
+print(e%a==0,end=' ')
+------------------------------
+QUESTION ----------------
+Mr.Ram has been given a problem kindly help him to solve it. The input of the program is either 0 or 1. IF 0 is the input he should display "C" if 1 is the input it should display "D".There is a constraint that Mr. Ram should use either logical operators or arithmetic operators to solve the problem, not anything else.
+------------------ANSWER
+a= int (input())
+b= a+67
+print(chr(b))
+------------------------------
+QUESTION ----------------
+Write a python program that takes a integer between 0 and 15 as input and displays the number of '1' s in its binary form.
+------------------ANSWER
+n=int(input())
+count=0
+count+=n&1
+n>>=1
+count+=n&1
+n>>=1
+count+=n&1
+n>>=1
+count+=n&1
+n>>1
+print(count)
+------------------------------
+QUESTION ----------------
+In London, every year during Dasara there will be a very grand doll show. People try to invent new dolls of different varieties. The best-sold doll's creator will be awarded with a cash prize. So people broke their heads to create dolls innovatively. Knowing this competition, Mr.Lokpaul tried to create a doll that sings only when an even number is pressed and the number should not be zero and greater than 100. If Lokpaul wins print true, otherwise false.
+------------------ANSWER
+a= int(input())
+print(a%2==0 and 0<=a<=100)
+------------------------------
+QUESTION ----------------
+A team from the Rotract club had planned to conduct a rally to create awareness among the Coimbatore people to donate blood. They conducted the rally successfully. Many of the Coimbatore people realized it and came forward to donate their blood to nearby blood banks. The eligibility criteria for donating blood are people should be above or equal to 18 and his/ her weight should be above 40. There was a huge crowd and staff in the blood bank found it difficult to manage the crowd. So they decided to keep a system and ask the people to enter their age and weight in the system. If a person is eligible he/she will be allowed inside. Write a program and feed it to the system to find whether a person is eligible or not.
+------------------ANSWER
+a= int(input())
+b= int(input())
+print(a>=18 and b>40)
+------------------------------
