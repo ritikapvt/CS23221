@@ -1,0 +1,149 @@
+QUESTION ----------------
+In this exercise you will create a program that reads a letter of the alphabet from the user. If the user enters a, e, i, o or u then your program should display a message indicating that the entered letter is a vowel. If the user enters y then your program should display a message indicating that sometimes y is a vowel, and sometimes y is a consonant. Otherwise your program should display a message indicating that the letter is a consonant.
+------------------ANSWER
+a= input()
+for i in a:
+    if i in 'aeiouAEIOU':
+        print("It's a vowel.")
+    elif i in 'yY':
+        print("Sometimes it's a vowel... Sometimes it's a consonant.")
+    else:
+        print("It's a consonant.")
+------------------------------
+QUESTION ----------------
+Ms. Sita, the faculty handling programming lab for you is very strict. Your seniors have told you that she will not allow you to enter the week's lab if you have not completed atleast half the number of problems given last week. Many of you didn't understand this statement and so they requested the good programmers from your batch to write a program to find whether a student will be allowed into a week's lab given the number of problems given last week and the number of problems solved by the student in that week.
+------------------ANSWER
+total= int(input())
+solved= int(input())
+if solved>=(total//2):
+    print("IN")
+else:
+    print("OUT")
+------------------------------
+QUESTION ----------------
+Write a program that returns the second last digit of the given number. Second last digit is being referred 10the digit in the tens place in the given number.
+------------------ANSWER
+a= int(input())
+b= (abs(a))//10
+c= b%10
+if c!=0:
+    print("%d" % c)
+else:
+    print(-1)
+------------------------------
+QUESTION ----------------
+A triangle can be classified based on the lengths of its sides as equilateral, isosceles or scalene. All three sides of an equilateral triangle have the same length. An isosceles triangle has two sides that are the same length, and a third side that is a different length. If all of the sides have different lengths then the triangle is scalene. Write a program that reads the lengths of the three sides of a triangle from the user. Then display a message that states the triangle’s type.
+------------------ANSWER
+side1= int(input())
+side2= int(input())
+side3= int(input())
+if side1==side2==side3:
+    print("That's a equilateral triangle")
+elif side1==side2 or side2==side3 or side1==side3:
+    print("That's a isosceles triangle")
+else:
+    print("That's a scalene triangle")
+------------------------------
+QUESTION ----------------
+The length of a month varies from 28 to 31 days. In this exercise you will create a program that reads the name of a month from the user as a string. Then your program should display the number of days in that month. Display “28 or 29 days” for February so that leap years are addressed.
+------------------ANSWER
+a= input()
+if a in ('January' , 'March' , 'May' , 'July' , 'August' , 'October' , 'December'):
+    print(a, "has 31 days in it.")
+elif a=='February':
+    print(a, "has 28 or 29 days in it.")
+else:
+    print(a, "has 30 days in it.")
+------------------------------
+QUESTION ----------------
+Write a program to calculate and print the Electricity bill where the unit consumed by the user is given from test case. It prints the total amount the customer has to pay. The charge are as follows: 
+      Unit                                               Charge / Unit
+Upto 199                                                   @1.20
+200 and above but less than 400                            @1.50
+400 and above but less than 600                            @1.80
+600 and above                                              @2.00
+If bill exceeds Rs.400 then a surcharge of 15% will be charged and the minimum bill should be of Rs.100/- 
+------------------ANSWER
+units= float(input())
+if units<83:
+    units=100.00
+    print("%.2f" % units)
+elif units>83 and units<200:
+    total=units*1.20
+    if total>400:
+        print(total+(total*15)/100)
+    else:
+        print("%.2f" % total)
+elif units>=200 and units<400:
+    total=units*1.50
+    print("%.2f" % (total+(total*15)/100))
+elif units>=400 and units<600:
+    total=units*1.80
+    print("%.2f" % (total+(total*15)/100))
+else:
+    total=units*2.00
+    print("%.2f" % (total+(total*15)/100))
+------------------------------
+QUESTION ----------------
+Write a program to find the eligibility of admission for a professional course based on the following criteria:
+Marks in Maths >= 65
+Marks in Physics >= 55
+Marks in Chemistry >= 50
+------------------ANSWER
+math= int(input())
+phy= int(input())
+chem= int(input())
+if (math>=65 and phy>=55 and chem>=50) or ((math+phy+chem)>=180):
+    print("The candidate is eligible")
+else:
+    print("The candidate is not eligible")
+------------------------------
+QUESTION ----------------
+The Chinese zodiac assigns animals to years in a 12 year cycle. One 12 year cycle is shown in the table below. The pattern repeats from there, with 2012 being another year of the dragon, and 1999 being another year of the hare. Write a program that reads a year from the user and displays the animal associated with that year. Your program should work correctly for any year greater than or equal to zero, not just the ones listed in the table.
+------------------ANSWER
+a= int(input())
+if (a-2000)%12==0:
+    print("%d is the year of the Dragon." % a)
+elif (a-2000)%12==1:
+    print("%d is the year of the Snake." % a)
+elif (a-2000)%12==2:
+    print("%d is the year of the Horse." % a)
+elif (a-2000)%12==3:
+    print("%d is the year of the Sheep." % a)
+elif (a-2000)%12==4:
+    print("%d is the year of the Monkey." % a)
+elif (a-2000)%12==5:
+    print("%d is the year of the Roster." % a)
+elif (a-2000)%12==6:
+    print("%d is the year of the Dog." % a)
+elif (a-2000)%12==7:
+    print("%d is the year of the Pig." % a)
+elif (a-2000)%12==8:
+    print("%d is the year of the Rat." % a)
+elif (a-2000)%12==9:
+    print("%d is the year of the Ox." % a)
+elif (a-2000)%12==10:
+    print("%d is the year of the Tiger." % a)
+elif (a-2000)%12==11:
+    print("%d is the year of Hare." % a)
+------------------------------
+QUESTION ----------------
+Most years have 365 days. However, the time required for the Earth to orbit the Sun is actually slightly more than that. As a result, an extra day, February 29, is included in some years to correct for this difference. Such years are referred to as leap years. Write a program that reads a year from the user and displays a message indicating whether or not it is a leap year.
+------------------ANSWER
+a= int(input())
+if (a%4==0 and a%100!=0) or a%400==0:
+    print("%d is a leap year." % a)
+else:
+    print("%d is not a leap year." % a)
+------------------------------
+QUESTION ----------------
+You are given three integers, a, b, and c. They need not be given in increasing order. If they form a Pythagorean triple, then print "yes", otherwise, print "no". Please note that the output message is in small letters.
+------------------ANSWER
+s1= int(input())
+s2= int(input())
+s3= int(input())
+if (s1*s1+s2*s2==s3*s3) or (s2*s2+s3*s3==s1*s1) or (s3*s3+s1*s1==s2*s2):
+    print("yes")
+else:
+    print("no")
+------------------------------
