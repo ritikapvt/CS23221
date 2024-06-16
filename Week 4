@@ -1,0 +1,119 @@
+QUESTION ----------------
+Write a program to find the count of the number of prime numbers in a specified range.
+------------------ANSWER
+a= int(input())
+b= int(input())
+count=0
+for i in range (a,b+1):
+  if i>1:
+    fact=0
+    for j in range (1,i+1):
+        if (i%j)==0:
+            fact=fact+1
+  if fact==2:
+    count=count+1
+print(count)
+------------------------------
+QUESTION ----------------
+Given a positive integer N, check whether it can be represented as a product of single digit number.
+------------------ANSWER
+a=int(input())
+flag=0
+for i in range (1,10):
+  for j in range (1,10):
+  if i*j==a:
+      flag=1
+if flag==0:
+  print("No")
+else:
+print("Yes") 
+------------------------------
+QUESTION ----------------
+Write a program to return the nth number in the fibonacci series.
+------------------ANSWER
+a=int(input())
+n1=0
+n2=1
+for i in range (1,a):
+    n3=n1+n2
+    n1=n2
+    n2=n3
+print(n1)
+------------------------------
+QUESTION ----------------
+Write a program to find the sum of the series 1+11+111+1111...+n terms. Input is given as 'n'.
+------------------ANSWER
+a=int(input()
+s=0
+c=1
+for i in range (1,a+1):
+    s=s+c
+    c=(c*10)+1
+print(s)
+------------------------------
+QUESTION ----------------
+Write a program that finds whether the given number N is Prime or not.
+------------------ANSWER
+a=int(input()
+flag=0
+for i in range (1,a+1):
+    if a%i==0:
+        flag=flag+1
+if flag==2:
+  print("2")
+else:
+  print("1")
+------------------------------
+QUESTION ----------------
+Rakesh loves playing with numbers. He took the Fibonacci series and wants to find the sum of squares of the series until a given value. Write a code that implements his task.
+------------------ANSWER
+a=int(input())
+n1=0
+n2=1
+sum=0
+for i in range (1,a):
+    n3=n1+n2
+    n1=n2
+    n2=n3
+    sum=sum+n3**2
+tot=sum+1
+print(tot)
+------------------------------
+QUESTION ----------------
+Write a program to find th count of unique digits in a given number N. The number will be passed to the program as an input of type int.
+------------------ANSWER
+a=int(input()
+my_list=[]
+for i in str(a):
+    if i not in my_list:
+        my_list.append(i)
+count=0
+for i in my_list:
+    count=count+1
+print(count)
+------------------------------
+QUESTION ----------------
+Write a program to find the factorial of a given number.
+------------------ANSWER
+a=int(input()
+sum=1
+for i in range (a,a+1):
+    sum=sum*i
+print(sum)
+------------------------------
+QUESTION ----------------
+Write a program to find if the input number is Disarium or not.
+------------------ANSWER
+a=int(input()
+b=str(a)
+a=0
+k=1
+for i in b:
+    i=int(i)
+    s+=i**k
+    k+=1
+if s==a:
+    print("Yes")
+else:
+    print("No")
+------------------------------
